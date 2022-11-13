@@ -1,8 +1,8 @@
 dataset: "AISHELL3"
 
 path:
-  corpus_path: "/home/ming/Data/AISHELL-3"
-  lexicon_path: "lexicon/pinyin-lexicon-r.txt"
+  corpus_path: "./corpus_example"
+  lexicon_path: "lexicon/mfa-lexicon.txt"
   raw_path: "./raw_data/AISHELL3"
   preprocessed_path: "./preprocessed_data/AISHELL3"
 
