@@ -68,12 +68,13 @@ def preprocess_mandarin(text, preprocess_config):
     lexicon = read_lexicon(preprocess_config["path"]["lexicon_path"])
 
     phones = []
-    pinyins = [
-        p[0]
-        for p in pinyin(
-            text, style=Style.TONE3, strict=False, neutral_tone_with_five=True
-        )
-    ]
+    # pinyins = [
+    #     p[0]
+    #     for p in pinyin(
+    #         text, style=Style.TONE3, strict=False, neutral_tone_with_five=True
+    #     )
+    # ]
+    pinyins = list(text)    # chg for ipa charts
     for p in pinyins:
         if p in lexicon:
             phones += lexicon[p]
