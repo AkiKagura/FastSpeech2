@@ -17,8 +17,9 @@ def prepare_align(config):
         with open(os.path.join(in_dir, dataset, "content.txt"), encoding="utf-8") as f:
             for line in tqdm(f):
                 wav_name, text = line.strip("\n").split("\t")
-                speaker = wav_name[:7]
-                text = text.split(" ")[1::2]
+                # speaker = wav_name[:7]
+                # text = text.split(" ")[1::2]
+                speaker = "0"
                 wav_path = os.path.join(in_dir, dataset, "wav", speaker, wav_name)
                 if os.path.exists(wav_path):
                     os.makedirs(os.path.join(out_dir, language, speaker), exist_ok=True)
@@ -30,7 +31,7 @@ def prepare_align(config):
                         wav.astype(np.int16),
                     )
                     with open(
-                        os.path.join(out_dir, language, speaker, "{}.lab".format(wav_name[:11])),
+                        os.path.join(out_dir, speaker, "{}.lab".format(wav_name[:-4])),
                         "w",
                     ) as f1:
                         f1.write(" ".join(text))
