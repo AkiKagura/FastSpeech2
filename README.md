@@ -1,7 +1,9 @@
 # FastSpeech2
 对国际音标(IPA Chart)下自训练中文数据集的支持
 
-本README重点在于表述如何使用自己的数据集训练一个中文的语音模型，如果想要阅读原有的README，请移步README_original.md  
+感谢源代码贡献者[ming024/FastSpeech2](https://github.com/ming024/FastSpeech2)，有什么疑问可以看那里的issues
+
+本README重点在于表述如何使用自己的数据集训练一个中文的语音模型，如果想要阅读原有的README，请移步[README_original](https://github.com/AkiKagura/FastSpeech2/blob/master/README_original.md)
 是在单说话人的基础上进行的修改，如果需要多个说话人，也许需要额外的修改
 
 ## 数据准备1 获取音频
@@ -59,5 +61,5 @@ RTX3090上大概不到一个小时可以走20000步
 ```
 python3 synthesize.py --text "大家好" --speaker_id 0 --restore_step 600000 --mode single -p config/AISHELL3/preprocess.yaml -m config/AISHELL3/model.yaml -t config/AISHELL3/train.yaml
 ```
-这里的speaker_id 与``preprocessed_data/AISHELL3/speakers.json``的设定有关
+这里的speaker_id 与``preprocessed_data/AISHELL3/speakers.json``的设定相同
 restore_step表示使用``output/ckpt/AISHELL3/``里的哪个训练数据
